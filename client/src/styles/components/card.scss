@@ -1,0 +1,32 @@
+.card {
+    border: 1px solid #27334a;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 80%;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: 0.2s all ease-out;
+
+    &:hover {
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    }
+
+    &__group {
+        padding-left: 3rem;
+        display: flex;
+
+        &--left {
+            flex-basis: 10rem;
+            color: #ccc;
+        }
+    }
+
+    &__header {
+        color: #eee;
+        background-color: #27334a;
+        padding: 1rem;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+    }
+}

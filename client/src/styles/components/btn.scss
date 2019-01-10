@@ -1,0 +1,49 @@
+.btn {
+    padding: 0.7rem 2rem;
+    background-color: #7469c0;
+    border-radius: 3px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+
+    &:hover {
+        background-color: darken(#7469c0, 10%);
+    }
+
+    &--small {
+        font-size: 1.3rem;
+        padding: 0.5rem 1.5rem;
+    }
+
+    &--danger {
+        background-color: #f44d6c;
+
+        &:hover {
+            background-color: darken(#f44d6c, 10%);
+        }
+    }
+
+    &--blue {
+        background-color: #0072b3;
+
+        &:hover {
+            background-color: darken(#0072b3, 10%);
+        }
+    }
+
+    &--outline-blue {
+        background-color: white;
+        border: 1px solid #0072b3;
+        color: #0072b3;
+
+        &:hover {
+            color: white;
+            background-color: #0072b3;
+        }
+    }
+}

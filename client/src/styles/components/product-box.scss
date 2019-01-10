@@ -1,0 +1,28 @@
+.product-box {
+    &__row {
+        display: flex;
+        justify-content: center;
+        transition: 0.15s all ease-out;
+        height: 4rem;
+        align-items: center;
+
+        &:nth-child(odd) {
+            background-color: hsla(167, 100%, 35%, 0.15);
+        }
+
+        &--header {
+            background-color: hsl(167, 100%, 35%) !important;
+            color: white;
+            height: 4rem;
+        }
+
+        &:hover {
+            background-color: hsla(167, 100%, 35%, 0.3);
+        }
+    }
+    &__col {
+        flex-grow: 1;
+        flex-basis: 50rem;
+        padding: 0.5rem 0 0.5rem 2rem;
+    }
+}

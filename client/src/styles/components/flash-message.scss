@@ -1,0 +1,46 @@
+.flash-message {
+    position: fixed;
+    width: 60%;
+    height: 4rem;
+    top: 2rem;
+    right: 15%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+
+    &--error {
+        border: 1px solid $flash-message-error-text;
+        background-color: $flash-message-error-bg;
+        color: $flash-message-error-text;
+    }
+
+    &--success {
+        border: 1px solid $flash-message-success-text;
+        background-color: $flash-message-success-bg;
+        color: $flash-message-success-text;
+    }
+
+    &__btn {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        outline: none;
+        background-color: white;
+        border: 1px solid #ccc;
+        color: #27334a;
+        border-radius: 100rem;
+        cursor: pointer;
+        transition: 0.2s all ease-out;
+
+        &:hover {
+            background-color: #27334a;
+            color: #eee;
+            border: #27334a;
+        }
+    }
+}

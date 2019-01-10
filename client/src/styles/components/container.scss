@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+
+    &__left {
+        width: $left-nav-width;
+    }
+
+    &__right {
+        flex-grow: 1;
+    }
+}

@@ -1,0 +1,103 @@
+.row-form {
+    border: 1px solid #27334a;
+    border-radius: 3px;
+    background-color: lighten($color: #27334a, $amount: 73);
+    flex: 1;
+    justify-content: space-between;
+
+    &__row {
+        display: flex;
+        align-items: center;
+
+        &--header {
+            height: 4rem;
+            background-color: #27334a;
+            color: white;
+        }
+    }
+    &__message {
+        margin-top: 3rem;
+        width: 40%;
+        min-width: 30rem;
+        border-radius: 3px;
+    }
+
+    &__message-btn {
+        padding: 0.5rem 1rem;
+        outline: none;
+        margin-top: 2rem;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: 0.2s all ease-out;
+
+        &--error {
+            border: 1px solid $flash-message-error-text;
+            background-color: white;
+            color: $flash-message-error-text;
+
+            &:hover {
+                color: white;
+                background-color: $flash-message-error-text;
+            }
+        }
+    }
+
+    &__col {
+        flex-grow: 1;
+        flex-basis: 100%;
+        padding-left: 2rem;
+
+        &--success {
+            padding: 1rem 0 1rem 2rem;
+            background-color: $flash-message-success-bg;
+            color: $flash-message-success-text;
+            border-radius: 3px;
+            border: 1px solid $flash-message-success-text;
+        }
+
+        &--error {
+            padding: 1rem 0 1rem 2rem;
+            background-color: $flash-message-error-bg;
+            color: $flash-message-error-text;
+            border-radius: 3px;
+            border: 1px solid $flash-message-error-text;
+        }
+    }
+
+    &__input {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #27334a;
+
+        &:not(:last-child) {
+            border-right: 1px solid #27334a;
+        }
+
+        &:active,
+        &:focus {
+            background-color: lighten($color: #0072b3, $amount: 60%);
+        }
+    }
+
+    &__btn--submit {
+        outline: none;
+        border: none;
+        height: 4rem;
+        font-size: 1.6rem;
+        background-color: #0072b3;
+        color: white;
+        transition: 0.2s all ease-out;
+        cursor: pointer;
+        border-radius: 0 0 3px 3px;
+
+        &:hover {
+            background-color: darken($color: #0072b3, $amount: 10);
+        }
+    }
+
+    &__sidebar {
+        flex-grow: 1;
+    }
+}
