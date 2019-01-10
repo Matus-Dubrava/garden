@@ -95,7 +95,11 @@ class IssueCards extends Component {
                                 datum:
                             </p>
                             <p className="card__text card__group--right">
-                                {this.props.selectedReceipt.date.split('T')[0]}
+                                {this.props.selectedReceipt.date
+                                    ? this.props.selectedReceipt.date.split(
+                                          'T'
+                                      )[0]
+                                    : null}
                             </p>
                         </div>
                         <div className="card__group">
