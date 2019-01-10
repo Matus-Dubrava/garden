@@ -15,50 +15,22 @@ class Receipt extends Component {
     renderReceipt() {
         if (this.props.receipts) {
             return this.props.receipts.map(card => (
-                <li className="main-list__item" key={card.id}>
-                    <div className="card">
-                        <div className="card__header">
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    id:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.identifier}
-                                </p>
-                            </div>
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    dodavatel:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.company}
-                                </p>
-                            </div>
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    datum:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.date.split('T')[0]}
-                                </p>
-                            </div>
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    cena:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.price}
-                                </p>
-                            </div>
-                            <Link
-                                className="btn u-margin-left-sm u-margin-top-xsm"
-                                to={`/receipts/detail/${card.id}`}
-                            >
-                                detail
-                            </Link>
-                        </div>
+                <div key={card.id} className="product-box__row">
+                    <div className="product-box__col">{card.identifier}</div>
+                    <div className="product-box__col">{card.company}</div>
+                    <div className="product-box__col">
+                        {card.date.split('T')[0]}
                     </div>
-                </li>
+                    <div className="product-box__col">{card.price}</div>
+                    <div className="product-box__col">
+                        <Link
+                            className="btn btn--small"
+                            to={`/receipts/detail/${card.id}`}
+                        >
+                            detail
+                        </Link>
+                    </div>
+                </div>
             ));
         } else {
             return null;
@@ -67,8 +39,25 @@ class Receipt extends Component {
 
     render() {
         return (
-            <div>
-                <ul className="main-list">{this.renderReceipt()}</ul>
+            <div className="wrapper u-margin-top-lg">
+                <div className="product-box product-box--rounded-top">
+                    <div className="product-box__row product-box__row--header">
+                        <div className="product-box__col product-box__col--header">
+                            id
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            dodavatel
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            datum
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            cena
+                        </div>
+                        <div className="product-box__col product-box__col--header" />
+                    </div>
+                    {this.renderReceipt()}
+                </div>
             </div>
         );
     }

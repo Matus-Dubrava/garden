@@ -93,7 +93,12 @@ class IssueCardItemForm extends Component {
             return (
                 <Backdrop>
                     <Modal>
-                        <AddStoreItem openedInModal code={this.state.code} />
+                        <div className="wrapper wrapper--md">
+                            <AddStoreItem
+                                openedInModal
+                                code={this.state.code}
+                            />
+                        </div>
                     </Modal>
                 </Backdrop>
             );
@@ -112,8 +117,12 @@ class IssueCardItemForm extends Component {
                         onSubmit={this.formSubmitHandler}
                     >
                         <div className="row-form__row row-form__row--header">
-                            <label className="row-form__col">kod</label>
-                            <label className="row-form__col">mnozstvo</label>
+                            <label className="row-form__col row-form__col--header">
+                                kod
+                            </label>
+                            <label className="row-form__col row-form__col--header">
+                                mnozstvo
+                            </label>
                         </div>
                         <div className="row-form__row">
                             <input
