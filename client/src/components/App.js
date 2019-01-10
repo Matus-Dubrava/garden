@@ -14,6 +14,7 @@ import IssueCards from './IssueCards/IssueCards';
 import IssueCard from './IssueCards/IssueCard';
 import IssueCardHeaderForm from './IssueCards/IssueCardHeaderForm';
 import Landing from './Landing';
+import SearchCode from './SearchCode';
 
 class App extends Component {
     componentDidMount() {
@@ -109,6 +110,8 @@ class App extends Component {
                                 component={IssueCard}
                             />
                         </div>
+
+                        <SearchCode />
                     </div>
                 </BrowserRouter>
             </div>

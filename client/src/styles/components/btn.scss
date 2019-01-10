@@ -1,10 +1,10 @@
 .btn {
     padding: 0.7rem 2rem;
-    background-color: #7469c0;
+    background-color: $color-violet-medium;
     border-radius: 3px;
     text-decoration: none;
     color: white;
-    border: none;
+    border: 1px solid transparent;
     outline: none;
     font-size: 1.5rem;
     display: inline-block;
@@ -12,7 +12,7 @@
     transition: 0.2s all ease-out;
 
     &:hover {
-        background-color: darken(#7469c0, 10%);
+        background-color: darken($color-violet-medium, 10%);
     }
 
     &--small {
@@ -44,6 +44,17 @@
         &:hover {
             color: white;
             background-color: #0072b3;
+        }
+    }
+
+    &--outline-violet {
+        border: 1px solid $color-violet-medium;
+        background-color: white;
+        color: $color-violet-dark;
+
+        &:hover {
+            background-color: $color-violet-medium;
+            color: white;
         }
     }
 }

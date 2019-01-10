@@ -1,0 +1,72 @@
+.search-code {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+
+    &__header {
+        border: 1px solid $color-violet-medium;
+        background-color: $color-violet-light;
+        padding: 1rem;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        color: $color-violet-dark;
+    }
+
+    &__input {
+        width: 30rem;
+        height: 3rem;
+        border-radius: 3px;
+        border: 1px solid $color-violet-medium;
+        outline: none;
+        padding-left: 1rem;
+        font-size: 1.6rem;
+        color: $color-violet-dark;
+    }
+
+    &__result {
+        border: 1px solid $color-violet-medium;
+        padding: 1rem;
+        background-color: $color-violet-light;
+        color: $color-violet-dark;
+        margin-bottom: 2rem;
+        border-radius: 3px;
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        padding-bottom: 0.5rem;
+    }
+
+    &__buttons {
+        margin-bottom: 1rem;
+    }
+
+    &__close-btn {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid $flash-message-error-text;
+        color: $flash-message-error-text;
+        background-color: $flash-message-error-bg;
+        border-radius: 100%;
+        top: -1rem;
+        right: -1rem;
+        cursor: pointer;
+        transition: 0.2s all ease-out;
+
+        &:hover {
+            background-color: $flash-message-error-text;
+            color: white;
+        }
+    }
+}
