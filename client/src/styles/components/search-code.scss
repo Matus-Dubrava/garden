@@ -11,6 +11,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 
     &__label {
@@ -32,19 +33,41 @@
 
     &__result {
         border: 1px solid $color-violet-medium;
-        padding: 1rem;
         background-color: $color-violet-light;
         color: $color-violet-dark;
         margin-bottom: 2rem;
         border-radius: 3px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
     }
 
-    &__list {
-        list-style: none;
+    &__row {
+        display: flex;
+        padding-left: 1rem;
+        align-items: center;
+        font-size: 1.4rem;
+        height: 2.5rem;
+        transition: 0.2s all ease-out;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-violet-light;
+        }
+
+        &:not(&--header):hover {
+            background-color: darken($color-violet-light, 10);
+        }
+
+        &--header {
+            font-size: 1.6rem;
+            background-color: $color-violet-dark;
+            color: white;
+            height: 3rem;
+        }
     }
 
-    &__item {
-        padding-bottom: 0.5rem;
+    &__col {
+        flex: 1;
     }
 
     &__buttons {

@@ -49,7 +49,7 @@ function findItemsByCode(code, allItems) {
     return result;
 }
 
-class SearchCode extends Component {
+class SearchBox extends Component {
     state = {
         opened: false,
         searchString: '',
@@ -83,9 +83,11 @@ class SearchCode extends Component {
 
     renderFoundItems() {
         return this.state.found.map(item => (
-            <li className="search-code__item" key={item.code}>
-                {item.code} - {item.name} - {item.available}
-            </li>
+            <div key={item.id} className="search-code__row">
+                <div className="search-code__col">{item.code}</div>
+                <div className="search-code__col">{item.name}</div>
+                <div className="search-code__col">{item.available}</div>
+            </div>
         ));
     }
 
@@ -93,9 +95,12 @@ class SearchCode extends Component {
         if (this.state.found.length) {
             return (
                 <div className="search-code__result">
-                    <ul className="search-code__list">
-                        {this.renderFoundItems()}
-                    </ul>
+                    <div className="search-code__row search-code__row--header">
+                        <div className="search-code__col">kod</div>
+                        <div className="search-code__col">nazov</div>
+                        <div className="search-code__col">mnozstvo</div>
+                    </div>
+                    {this.renderFoundItems()}
                 </div>
             );
         } else {
@@ -165,6 +170,7 @@ class SearchCode extends Component {
                             </button>
                         </div>
                         <input
+                            placeholder="min. 3 znaky"
                             value={this.state.searchString}
                             onChange={this.inputChangeHandler}
                             name="searchString"
@@ -187,7 +193,7 @@ class SearchCode extends Component {
                     onClick={() => this.setState({ opened: true })}
                     className="btn"
                 >
-                    vyhladat kod
+                    vyhladat polozku
                 </button>
             );
         } else {
@@ -211,4 +217,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(SearchCode);
+export default connect(mapStateToProps)(SearchBox);
