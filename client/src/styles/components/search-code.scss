@@ -1,0 +1,95 @@
+.search-code {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+
+    &__header {
+        border: 1px solid $color-violet-medium;
+        background-color: $color-violet-light;
+        padding: 1rem;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        color: $color-violet-dark;
+    }
+
+    &__input {
+        width: 30rem;
+        height: 3rem;
+        border-radius: 3px;
+        border: 1px solid $color-violet-medium;
+        outline: none;
+        padding-left: 1rem;
+        font-size: 1.6rem;
+        color: $color-violet-dark;
+    }
+
+    &__result {
+        border: 1px solid $color-violet-medium;
+        background-color: $color-violet-light;
+        color: $color-violet-dark;
+        margin-bottom: 2rem;
+        border-radius: 3px;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__row {
+        display: flex;
+        padding-left: 1rem;
+        align-items: center;
+        font-size: 1.4rem;
+        height: 2.5rem;
+        transition: 0.2s all ease-out;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-violet-light;
+        }
+
+        &:not(&--header):hover {
+            background-color: darken($color-violet-light, 10);
+        }
+
+        &--header {
+            font-size: 1.6rem;
+            background-color: $color-violet-dark;
+            color: white;
+            height: 3rem;
+        }
+    }
+
+    &__col {
+        flex: 1;
+    }
+
+    &__buttons {
+        margin-bottom: 1rem;
+    }
+
+    &__close-btn {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid $flash-message-error-text;
+        color: $flash-message-error-text;
+        background-color: $flash-message-error-bg;
+        border-radius: 100%;
+        top: -1rem;
+        right: -1rem;
+        cursor: pointer;
+        transition: 0.2s all ease-out;
+
+        &:hover {
+            background-color: $flash-message-error-text;
+            color: white;
+        }
+    }
+}
