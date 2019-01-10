@@ -54,11 +54,19 @@ class Store extends Component {
             <div className="wrapper u-margin-top-lg">
                 <div className="product-box product-box--rounded-top">
                     <div className="product-box__row product-box__row--header">
-                        <div className="product-box__col">kod</div>
-                        <div className="product-box__col">nazov</div>
-                        <div className="product-box__col">predajna cena</div>
-                        <div className="product-box__col">kusov na sklade</div>
-                        <div className="product-box__col" />
+                        <div className="product-box__col product-box__col--header">
+                            kod
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            nazov
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            predajna cena
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            kusov na sklade
+                        </div>
+                        <div className="product-box__col product-box__col--header" />
                     </div>
                     {this.renderItems()}
                 </div>

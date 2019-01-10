@@ -24,7 +24,7 @@ class IssueCards extends Component {
                     <div className="product-box__col">
                         <Link
                             className="btn btn--small"
-                            to={`/receipts/detail/${card.id}`}
+                            to={`/issue-cards/detail/${card.id}`}
                         >
                             detail
                         </Link>
@@ -41,10 +41,16 @@ class IssueCards extends Component {
             <div className="wrapper u-margin-top-lg">
                 <div className="product-box product-box--rounded-top">
                     <div className="product-box__row product-box__row--header">
-                        <div className="product-box__col">id</div>
-                        <div className="product-box__col">dodavatel</div>
-                        <div className="product-box__col">datum</div>
-                        <div className="product-box__col" />
+                        <div className="product-box__col product-box__col--header">
+                            id
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            dodavatel
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            datum
+                        </div>
+                        <div className="product-box__col product-box__col--header" />
                     </div>
                     {this.renderIssueCards()}
                 </div>

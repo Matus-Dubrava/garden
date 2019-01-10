@@ -127,10 +127,16 @@ class IssueCards extends Component {
 
                     <div className="product-box">
                         <div className="product-box__row product-box__row--header">
-                            <div className="product-box__col">kod</div>
-                            <div className="product-box__col">nazov</div>
-                            <div className="product-box__col">mnozstvo</div>
-                            <div className="product-box__col" />
+                            <div className="product-box__col product-box__col--header">
+                                kod
+                            </div>
+                            <div className="product-box__col product-box__col--header">
+                                nazov
+                            </div>
+                            <div className="product-box__col product-box__col--header">
+                                mnozstvo
+                            </div>
+                            <div className="product-box__col product-box__col--header" />
                         </div>
                         {this.renderIssueCardStoreItems(
                             this.props.selectedIssueCard.storeItems

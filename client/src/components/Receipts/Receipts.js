@@ -42,11 +42,19 @@ class Receipt extends Component {
             <div className="wrapper u-margin-top-lg">
                 <div className="product-box product-box--rounded-top">
                     <div className="product-box__row product-box__row--header">
-                        <div className="product-box__col">id</div>
-                        <div className="product-box__col">dodavatel</div>
-                        <div className="product-box__col">datum</div>
-                        <div className="product-box__col">cena</div>
-                        <div className="product-box__col" />
+                        <div className="product-box__col product-box__col--header">
+                            id
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            dodavatel
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            datum
+                        </div>
+                        <div className="product-box__col product-box__col--header">
+                            cena
+                        </div>
+                        <div className="product-box__col product-box__col--header" />
                     </div>
                     {this.renderReceipt()}
                 </div>

@@ -30,6 +30,7 @@
             background-color: #eee;
         }
     }
+
     &__col {
         flex-grow: 1;
         flex-basis: 50rem;
@@ -40,6 +41,12 @@
 
         &:not(:last-child) {
             border-right: 1px solid #ddd;
+        }
+
+        &--header {
+            &:not(:last-child) {
+                border-right: 1px solid #346285;
+            }
         }
     }
 }
