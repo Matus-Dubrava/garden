@@ -26,7 +26,7 @@ class Store extends Component {
                     <div className="product-box__col">{item.available}</div>
                     <div className="product-box__col">
                         <Link
-                            className="btn btn--blue btn--small"
+                            className="btn btn--small"
                             to={`/store/add-item?id=${item.id}&name=${
                                 item.name
                             }&code=${item.code}&selling-price=${
@@ -52,7 +52,7 @@ class Store extends Component {
     render() {
         return (
             <div className="wrapper u-margin-top-lg">
-                <div className="product-box">
+                <div className="product-box product-box--rounded-top">
                     <div className="product-box__row product-box__row--header">
                         <div className="product-box__col">kod</div>
                         <div className="product-box__col">nazov</div>

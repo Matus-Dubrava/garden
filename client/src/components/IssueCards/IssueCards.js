@@ -15,42 +15,21 @@ class IssueCards extends Component {
     renderIssueCards() {
         if (this.props.issueCards) {
             return this.props.issueCards.map(card => (
-                <li className="main-list__item" key={card.id}>
-                    <div className="card">
-                        <div className="card__header">
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    id:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.identifier}
-                                </p>
-                            </div>
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    odoberatel:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.receiver}
-                                </p>
-                            </div>
-                            <div className="card__group">
-                                <p className="card__text card__group--left">
-                                    datum:
-                                </p>
-                                <p className="card__text card__group--right">
-                                    {card.date.split('T')[0]}
-                                </p>
-                            </div>
-                            <Link
-                                className="btn u-margin-left-sm u-margin-top-xsm"
-                                to={`/issue-cards/detail/${card.id}`}
-                            >
-                                detail
-                            </Link>
-                        </div>
+                <div key={card.id} className="product-box__row">
+                    <div className="product-box__col">{card.identifier}</div>
+                    <div className="product-box__col">{card.receiver}</div>
+                    <div className="product-box__col">
+                        {card.date.split('T')[0]}
                     </div>
-                </li>
+                    <div className="product-box__col">
+                        <Link
+                            className="btn btn--small"
+                            to={`/receipts/detail/${card.id}`}
+                        >
+                            detail
+                        </Link>
+                    </div>
+                </div>
             ));
         } else {
             return null;
@@ -59,8 +38,16 @@ class IssueCards extends Component {
 
     render() {
         return (
-            <div>
-                <ul className="main-list">{this.renderIssueCards()}</ul>
+            <div className="wrapper u-margin-top-lg">
+                <div className="product-box product-box--rounded-top">
+                    <div className="product-box__row product-box__row--header">
+                        <div className="product-box__col">id</div>
+                        <div className="product-box__col">dodavatel</div>
+                        <div className="product-box__col">datum</div>
+                        <div className="product-box__col" />
+                    </div>
+                    {this.renderIssueCards()}
+                </div>
             </div>
         );
     }

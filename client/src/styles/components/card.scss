@@ -1,7 +1,7 @@
 .card {
-    border: 1px solid #27334a;
+    border: 1px solid $color-blue-dark;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     width: 80%;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transition: 0.2s all ease-out;
@@ -22,7 +22,7 @@
 
     &__header {
         color: #eee;
-        background-color: #27334a;
+        background-color: $color-blue-dark;
         padding: 1rem;
     }
 
