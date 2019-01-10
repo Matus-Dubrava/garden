@@ -7,13 +7,31 @@ import {
     ADD_STORE_ITEM,
     DELETE_STORE_ITEM,
     UPDATE_STORE_ITEM,
-    REQUEST_SUCCEEDED
+    REQUEST_SUCCEEDED,
+    FETCH_SUBSET_DATA,
+    CHANGE_TO_CURRENT_STATE
 } from './types';
 import { storeBaseUrl } from '../urls';
 
 const storeAxios = axios.create({
     baseURL: storeBaseUrl
 });
+
+export const fetchSubsetData = date => async dispatch => {
+    dispatch({ type: REQUEST_INITIALIZED });
+
+    try {
+        const res = await storeAxios(`?date=${date}`);
+        dispatch({ type: FETCH_SUBSET_DATA, items: res.data, date });
+        dispatch({ type: REQUEST_SUCCEEDED });
+    } catch (error) {
+        dispatch({ type: REQUEST_FAILED, error: 'nepodarilo sa ziskat data' });
+    }
+};
+
+export const changeToCurrentState = () => {
+    return { type: CHANGE_TO_CURRENT_STATE };
+};
 
 export const fetchStoreData = () => async dispatch => {
     dispatch({ type: REQUEST_INITIALIZED });

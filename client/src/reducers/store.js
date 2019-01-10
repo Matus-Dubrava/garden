@@ -3,11 +3,33 @@ import {
     ADD_STORE_ITEM,
     DELETE_STORE_ITEM,
     UPDATE_STORE_ITEM,
-    UPDATE_STORE_ITEM_AMOUNT
+    UPDATE_STORE_ITEM_AMOUNT,
+    FETCH_SUBSET_DATA,
+    CHANGE_TO_CURRENT_STATE
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    items: []
+    items: [],
+    currentDate: true,
+    selectedDate: '',
+    itemsSubset: []
+};
+
+const fetchSubsetData = (state, { items, date }) => {
+    return {
+        ...state,
+        currentDate: false,
+        itemsSubset: items,
+        selectedDate: date
+    };
+};
+
+const changeToCurrentState = state => {
+    return {
+        ...state,
+        currentDate: true,
+        selectedDate: ''
+    };
 };
 
 const fetchStoreData = (state, { items }) => {
@@ -65,6 +87,10 @@ const updateStoreItemAmount = (state, { id, amount, increase }) => {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case CHANGE_TO_CURRENT_STATE:
+            return changeToCurrentState(state, action);
+        case FETCH_SUBSET_DATA:
+            return fetchSubsetData(state, action);
         case UPDATE_STORE_ITEM_AMOUNT:
             return updateStoreItemAmount(state, action);
         case FETCH_STORE_DATA:

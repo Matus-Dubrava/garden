@@ -11,17 +11,76 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/goods', (req, res) => {
-    connection
-        .query(
-            'SELECT id, name, code, ifnull(bought, 0) - ifnull(sold, 0) as available, sellingPrice FROM store_items'
-        )
-        .then(rows => {
-            res.json(rows);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).send('internal error');
-        });
+    const { date } = req.query;
+    if (date) {
+        connection
+            .query(
+                `SELECT id, code, name, sum(amount) as bought FROM store_items_bought_date WHERE date_bought < "${date}" GROUP BY id`
+            )
+            .then(boughtRows => {
+                connection
+                    .query(
+                        `SELECT id, code, name, sum(amount) as sold FROM store_items_sold_date WHERE date_sold < "${date}" GROUP BY id`
+                    )
+                    .then(soldRows => {
+                        const result = [];
+                        const processedIds = [];
+
+                        boughtRows.forEach(item => {
+                            let processed = false;
+                            for (let i = 0; i < soldRows.length; i++) {
+                                if (item.id === soldRows[i].id) {
+                                    processed = true;
+                                    processedIds.push(item.id);
+                                    result.push({
+                                        id: item.id,
+                                        name: item.name,
+                                        code: item.code,
+                                        available:
+                                            +item.bought - +soldRows[i].sold
+                                    });
+                                    break;
+                                }
+                            }
+                            if (!processed) {
+                                result.push({
+                                    id: item.id,
+                                    name: item.name,
+                                    code: item.code,
+                                    available: +item.bought
+                                });
+                            }
+                        });
+
+                        soldRows.forEach(item => {
+                            if (!processedIds.includes(item.id)) {
+                                result.push({
+                                    id: item.id,
+                                    name: item.name,
+                                    code: item.code,
+                                    available: -Number(item.sold)
+                                });
+                            }
+                        });
+
+                        return res.json(result);
+                    });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send('internal error');
+            });
+    } else {
+        connection
+            .query('SELECT * FROM store_items')
+            .then(rows => {
+                res.json(rows);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send('internal error');
+            });
+    }
 });
 
 app.post('/goods', (req, res) => {

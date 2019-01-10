@@ -2,7 +2,9 @@ export {
     fetchStoreData,
     addStoreItem,
     deleteStoreItem,
-    updateStoreItem
+    updateStoreItem,
+    fetchSubsetData,
+    changeToCurrentState
 } from './store';
 
 export {
