@@ -45,7 +45,7 @@
 
         &--header {
             &:not(:last-child) {
-                border-right: 1px solid #346285;
+                border-right: 1px solid $color-blue-col-delimiter;
             }
         }
     }
