@@ -13,6 +13,7 @@ import ReceiptHeaderForm from './Receipts/ReceiptHeaderForm';
 import IssueCards from './IssueCards/IssueCards';
 import IssueCard from './IssueCards/IssueCard';
 import IssueCardHeaderForm from './IssueCards/IssueCardHeaderForm';
+import Landing from './Landing';
 
 class App extends Component {
     componentDidMount() {
@@ -71,6 +72,8 @@ class App extends Component {
                         <div className="container__right">
                             {this.renderError()}
                             {this.renderMessage()}
+
+                            <Route exact path="/" component={Landing} />
 
                             <Route exact path="/store" component={Store} />
                             <Route

@@ -16,6 +16,14 @@ class Navigation extends Component {
         return (
             <nav className="nav">
                 <ul className="nav__list">
+                    <li className="nav__item">
+                        <Link
+                            className={getClassName('/', this.props.activeLink)}
+                            to="/"
+                        >
+                            domov
+                        </Link>
+                    </li>
                     <li className="nav__item nav__item--title">SKLAD</li>
                     <li className="nav__item">
                         <Link
