@@ -86,6 +86,7 @@
         right: -1rem;
         cursor: pointer;
         transition: 0.2s all ease-out;
+        outline: none;
 
         &:hover {
             background-color: $flash-message-error-text;

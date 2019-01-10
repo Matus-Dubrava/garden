@@ -1,8 +1,9 @@
 .col-form {
-    background-color: lighten($color: #27334a, $amount: 73);
+    background-color: lighten($color-blue-medium, 45);
     border-radius: 5px;
-    border: 1px solid #27334a;
     color: #27334a;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+    border: 1px solid lighten($color-blue-medium, 35);
 
     &__group {
         display: flex;
@@ -18,17 +19,17 @@
     }
 
     &__label {
-        width: 80%;
+        width: 95%;
         font-size: 1.4rem;
         margin-bottom: 3px;
     }
     &__input {
-        width: 80%;
+        width: 95%;
         padding-top: 1rem;
         padding-bottom: 1rem;
         padding-left: 2rem;
         outline: none;
-        border: 1px solid hsla(219, 31%, 22%, 0.5);
+        border: 1px solid lighten($color-blue-medium, 30);
         border-radius: 5px;
         font-size: inherit;
         color: #27334a;
@@ -41,7 +42,7 @@
 
     &__header {
         border-radius: 5px 5px 0 0;
-        background-color: #27334a;
+        background-color: $color-blue-dark;
         color: white;
         display: flex;
         height: 6rem;
@@ -52,21 +53,21 @@
     }
 
     &__btn--submit {
-        width: 80%;
+        width: 95%;
         outline: none;
         border: none;
-        height: 4rem;
+        height: 5rem;
         font-size: 1.6rem;
-        background-color: #7469c0;
+        background-color: $color-blue-medium;
         color: white;
         transition: 0.2s all ease-out;
         cursor: pointer;
         border-radius: 3px;
-        margin-top: 2rem;
+        margin-top: 3rem;
         margin-bottom: 3rem;
 
         &:hover {
-            background-color: darken($color: #7469c0, $amount: 10);
+            background-color: darken($color: $color-blue-medium, $amount: 10);
         }
     }
 }

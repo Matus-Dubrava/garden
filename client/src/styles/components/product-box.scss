@@ -1,5 +1,5 @@
 .product-box {
-    border: 1px solid #4380b0;
+    border: 1px solid $color-blue-medium;
     background-color: #d7e9f7;
     border-radius: 0 0 3px 3px;
 
@@ -21,7 +21,7 @@
         }
 
         &--header {
-            background-color: #4380b0 !important;
+            background-color: $color-blue-medium !important;
             color: white;
             height: 5rem;
         }
