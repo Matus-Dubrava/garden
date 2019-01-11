@@ -14,7 +14,10 @@ import {
 import { storeBaseUrl } from '../urls';
 
 const storeAxios = axios.create({
-    baseURL: storeBaseUrl
+    baseURL: storeBaseUrl,
+    headers: {
+        authorization: localStorage.getItem('token')
+    }
 });
 
 export const fetchSubsetData = date => async dispatch => {

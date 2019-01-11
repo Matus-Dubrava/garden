@@ -17,7 +17,10 @@ import {
 import { receiptsUrl } from '../urls';
 
 const receiptAxios = axios.create({
-    baseURL: receiptsUrl
+    baseURL: receiptsUrl,
+    headers: {
+        authorization: localStorage.getItem('token')
+    }
 });
 
 export const fetchReceipts = () => async dispatch => {

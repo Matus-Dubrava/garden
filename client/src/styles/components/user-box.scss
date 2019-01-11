@@ -1,0 +1,10 @@
+.user-box {
+    display: flex;
+    margin-bottom: 3rem;
+    align-items: center;
+
+    &__text {
+        color: $color-nav-link;
+        font-size: 1.4rem;
+    }
+}

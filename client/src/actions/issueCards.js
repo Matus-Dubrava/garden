@@ -17,7 +17,10 @@ import {
 import { issueCardsUrl } from '../urls';
 
 const issueCardAxios = axios.create({
-    baseURL: issueCardsUrl
+    baseURL: issueCardsUrl,
+    headers: {
+        authorization: localStorage.getItem('token')
+    }
 });
 
 export const fetchIssueCards = () => async dispatch => {

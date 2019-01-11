@@ -1,9 +1,12 @@
 const router = require('express').Router();
+const passport = require('passport');
 
 const conn = require('../services/database');
 
+const tokenLogin = passport.authenticate('jwt', { session: false });
+
 conn.then(connection => {
-    router.get('/', (req, res) => {
+    router.get('/', tokenLogin, (req, res) => {
         const { date } = req.query;
         if (date) {
             connection
@@ -76,7 +79,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/', (req, res) => {
+    router.post('/', tokenLogin, (req, res) => {
         const { code, name, sellingPrice } = req.body;
 
         if (!code || !name || !sellingPrice) {
@@ -96,7 +99,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/update', (req, res) => {
+    router.post('/update', tokenLogin, (req, res) => {
         const { code, name, sellingPrice, id } = req.body;
 
         if (!code || !name || !sellingPrice || !id) {
@@ -116,7 +119,7 @@ conn.then(connection => {
         }
     });
 
-    router.delete('/:id', (req, res) => {
+    router.delete('/:id', tokenLogin, (req, res) => {
         const { id } = req.params;
 
         connection

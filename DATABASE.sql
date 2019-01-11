@@ -42,7 +42,13 @@ create table issue_card_goods (
     CONSTRAINT goods_receipt_unique UNIQUE (goods_id, issue_card_id)
 );
 
--- CREATE VIEW store_items AS SELECT main.id, main.name, main.code, main.bought, main.sellingPrice, sec.sold FROM (SELECT goods.id, goods.name, goods.code, SUM(goods_receipt.amount) as bought, goods.sellingPrice FROM goods LEFT JOIN goods_receipt ON goods.id=goods_receipt.goods_id GROUP BY code) as main JOIN (SELECT goods.code, SUM(issue_card_goods.amount) as sold FROM goods LEFT JOIN issue_card_goods ON goods.id=issue_card_goods.goods_id GROUP BY code) as sec ON main.code=sec.code;
+create table user (
+    id int unsigned not null auto_increment,
+    username varchar(255) not null unique,
+    password varchar(255) not null,
+    primary key(id)
+)
+
 
 CREATE VIEW store_items AS SELECT main.id, main.name, main.code, ifnull(main.bought, 0) - ifnull(sec.sold, 0) as available, main.sellingPrice FROM (SELECT goods.id, goods.name, goods.code, SUM(goods_receipt.amount) as bought, goods.sellingPrice FROM goods LEFT JOIN goods_receipt ON goods.id=goods_receipt.goods_id GROUP BY code) as main JOIN (SELECT goods.code, SUM(issue_card_goods.amount) as sold FROM goods LEFT JOIN issue_card_goods ON goods.id=issue_card_goods.goods_id GROUP BY code) as sec ON main.code=sec.code;
 

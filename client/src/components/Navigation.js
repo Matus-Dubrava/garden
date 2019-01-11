@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
+import UserBox from './User/UserBox';
+
 function getClassName(currentItem, activeItem) {
     let activeLink = '';
     if (activeItem === currentItem) {
@@ -16,6 +18,7 @@ class Navigation extends Component {
         return (
             <nav className="nav">
                 <ul className="nav__list">
+                    <UserBox />
                     <li className="nav__item">
                         <Link
                             className={getClassName('/', this.props.activeLink)}
