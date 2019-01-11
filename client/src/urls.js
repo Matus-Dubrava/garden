@@ -8,3 +8,4 @@ const publicBaseUrl = publicDnsName + ':' + serverPort + '/garden/' + version;
 export const storeBaseUrl = localUrl + '/goods';
 export const receiptsUrl = localUrl + '/receipts';
 export const issueCardsUrl = localUrl + '/issue-cards';
+export const usersUrl = localUrl + '/users';

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { parseQueryString } from '../../utilities/utils';
 import * as actions from '../../actions';
-import { link } from 'fs';
 
 class AddStoreItem extends Component {
     state = {

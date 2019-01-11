@@ -1,9 +1,12 @@
 const router = require('express').Router();
+const passport = require('passport');
 
 const conn = require('../services/database');
 
+const tokenLogin = passport.authenticate('jwt', { session: false });
+
 conn.then(connection => {
-    router.get('/', (req, res) => {
+    router.get('/', tokenLogin, (req, res) => {
         connection
             .query(`SELECT * FROM issue_card`)
             .then(rows => {
@@ -15,7 +18,7 @@ conn.then(connection => {
             });
     });
 
-    router.get('/:id', (req, res) => {
+    router.get('/:id', tokenLogin, (req, res) => {
         const { id } = req.params;
 
         connection
@@ -54,7 +57,7 @@ conn.then(connection => {
             });
     });
 
-    router.post('/', (req, res) => {
+    router.post('/', tokenLogin, (req, res) => {
         const { date, receiver = '', identifier } = req.body;
 
         if (!date || !identifier) {
@@ -74,7 +77,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/field', (req, res) => {
+    router.post('/field', tokenLogin, (req, res) => {
         const { amount, storeItemId, issueCardId } = req.body;
 
         if (!amount || !storeItemId || !issueCardId) {
@@ -94,7 +97,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/update', (req, res) => {
+    router.post('/update', tokenLogin, (req, res) => {
         const { date, receiver = '', identifier, issueCardId } = req.body;
 
         if (!date || !issueCardId || !identifier) {
@@ -114,7 +117,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/update/field', (req, res) => {
+    router.post('/update/field', tokenLogin, (req, res) => {
         const { issueCardId, storeItemId, amount } = req.body;
 
         if (!storeItemId || !issueCardId || !amount) {
@@ -134,7 +137,7 @@ conn.then(connection => {
         }
     });
 
-    router.delete('/field', (req, res) => {
+    router.delete('/field', tokenLogin, (req, res) => {
         const { issueCardId, storeItemId } = req.body;
 
         if (!storeItemId || !issueCardId) {
@@ -154,7 +157,7 @@ conn.then(connection => {
         }
     });
 
-    router.delete('/', (req, res) => {
+    router.delete('/', tokenLogin, (req, res) => {
         const { id } = req.body;
 
         if (!id) {

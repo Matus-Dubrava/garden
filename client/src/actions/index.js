@@ -35,3 +35,5 @@ export {
     setActiveLink,
     toggleModal
 } from './app';
+
+export { loginUser, autoLoginUser, logout } from './users';

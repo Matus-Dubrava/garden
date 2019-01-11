@@ -1,9 +1,12 @@
 const router = require('express').Router();
+const passport = require('passport');
 
 const conn = require('../services/database');
 
+const tokenLogin = passport.authenticate('jwt', { session: false });
+
 conn.then(connection => {
-    router.get('/', (req, res) => {
+    router.get('/', tokenLogin, (req, res) => {
         connection
             .query(`SELECT * FROM receipt`)
             .then(rows => {
@@ -15,7 +18,7 @@ conn.then(connection => {
             });
     });
 
-    router.get('/:id', (req, res) => {
+    router.get('/:id', tokenLogin, (req, res) => {
         const { id } = req.params;
 
         connection
@@ -56,7 +59,7 @@ conn.then(connection => {
             });
     });
 
-    router.post('/', (req, res) => {
+    router.post('/', tokenLogin, (req, res) => {
         const { date, company = '', identifier, price } = req.body;
 
         if (!date || !identifier || !price) {
@@ -76,7 +79,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/field', (req, res) => {
+    router.post('/field', tokenLogin, (req, res) => {
         const { amount, storeItemId, receiptId, inp_price } = req.body;
 
         if (!amount || !storeItemId || !receiptId || !inp_price) {
@@ -96,7 +99,7 @@ conn.then(connection => {
         }
     });
 
-    router.post('/update', (req, res) => {
+    router.post('/update', tokenLogin, (req, res) => {
         const { date, company = '', identifier, price, receiptId } = req.body;
 
         if (!date || !receiptId || !identifier || !price) {
@@ -116,7 +119,7 @@ conn.then(connection => {
         }
     });
 
-    router.delete('/field', (req, res) => {
+    router.delete('/field', tokenLogin, (req, res) => {
         const { receiptId, storeItemId } = req.body;
 
         if (!storeItemId || !receiptId) {
@@ -136,7 +139,7 @@ conn.then(connection => {
         }
     });
 
-    router.delete('/', (req, res) => {
+    router.delete('/', tokenLogin, (req, res) => {
         const { id } = req.body;
 
         if (!id) {

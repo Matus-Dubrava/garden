@@ -32,3 +32,5 @@ export const DISMISS_ERROR = 'DISMISS_ERROR';
 export const DISMISS_MESSAGE = 'DISMISS_MESSAGE';
 export const SET_ACTIVE_LINK = 'SET_ACTIVE_LINK';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+
+export const LOGIN_USER = 'LOGIN_USER';
