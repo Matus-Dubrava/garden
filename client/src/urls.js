@@ -1,6 +1,10 @@
-const baseUrl = 'http://localhost:5000';
-// const baseUrl = 'http://ec2-54-87-42-106.compute-1.amazonaws.com:5000';
+const version = 'v0';
+const serverPort = 5000;
+const localUrl = 'http://localhost:' + serverPort + '/garden/' + version;
 
-export const storeBaseUrl = baseUrl + '/goods';
-export const receiptsUrl = baseUrl + '/receipts';
-export const issueCardsUrl = baseUrl + '/issue-cards';
+const publicDnsName = '';
+const publicBaseUrl = publicDnsName + ':' + serverPort + '/garden/' + version;
+
+export const storeBaseUrl = localUrl + '/goods';
+export const receiptsUrl = localUrl + '/receipts';
+export const issueCardsUrl = localUrl + '/issue-cards';
