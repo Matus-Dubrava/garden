@@ -18,6 +18,8 @@ class Store extends Component {
     };
 
     renderItems() {
+        // if the date it set to current date, then show all the store items
+        // otherwise show only a returned subset (different piece of redux state - itemsSubset)
         if (this.props.currentDate) {
             if (this.props.items) {
                 return this.props.items.map(item => (

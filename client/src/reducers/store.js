@@ -40,8 +40,6 @@ const fetchStoreData = (state, { items }) => {
 };
 
 const addStoreItem = (state, { item }) => {
-    item.sold = 0;
-    item.bought = 0;
     const items = [...state.items, item];
     return {
         ...state,
