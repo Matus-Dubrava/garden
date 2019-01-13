@@ -1,0 +1,33 @@
+.search-form {
+    &__row {
+        display: flex;
+        align-items: center;
+        height: 5rem;
+        background-color: $color-blue-dark;
+        border-radius: 3px;
+    }
+
+    &__heading {
+        color: #eee;
+        padding-left: 2rem;
+    }
+
+    &__input {
+        height: 3rem;
+        border: none;
+        border-radius: 3px;
+        outline: none;
+        padding-left: 1rem;
+
+        &:active,
+        &:focus {
+            background-color: lighten($color: #0072b3, $amount: 60%);
+        }
+    }
+
+    &__label {
+        color: #eee;
+        margin-left: 3rem;
+        margin-right: 1rem;
+    }
+}

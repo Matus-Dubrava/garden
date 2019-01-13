@@ -20,9 +20,9 @@ class DateSearchBox extends Component {
         }
     };
 
-    changeToCurrentStateHandler = () => {
+    changeToCurrentDate = () => {
         if (!this.props.currentDate) {
-            this.props.onChangeToCurrentState();
+            this.props.onChangeToCurrentDate();
         }
     };
 
@@ -59,7 +59,7 @@ class DateSearchBox extends Component {
                             ? 'btn btn--small u-margin-left-xsm'
                             : 'btn btn--outline-violet btn--small u-margin-left-xsm'
                     }
-                    onClick={this.changeToCurrentStateHandler}
+                    onClick={this.changeToCurrentDate}
                 >
                     sucasny stav
                 </button>
@@ -77,7 +77,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChangeToCurrentState: () => dispatch(actions.changeToCurrentState()),
+        onChangeToCurrentDate: () => dispatch(actions.changeToCurrentDate()),
         onFetchSubsetData: date => dispatch(actions.fetchSubsetData(date))
     };
 };

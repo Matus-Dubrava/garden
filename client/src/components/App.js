@@ -15,6 +15,7 @@ import IssueCard from './IssueCards/IssueCard';
 import IssueCardHeaderForm from './IssueCards/IssueCardHeaderForm';
 import Landing from './Landing';
 import SearchBox from './SearchBox';
+import StoreSearchContainer from './Store/StoreSearchContainer';
 
 class App extends Component {
     componentDidMount() {
@@ -77,6 +78,10 @@ class App extends Component {
                             <Route exact path="/" component={Landing} />
 
                             <Route exact path="/store" component={Store} />
+                            <Route
+                                path="/store/search"
+                                component={StoreSearchContainer}
+                            />
                             <Route
                                 path="/store/add-item"
                                 component={AddStoreItem}

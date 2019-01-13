@@ -9,6 +9,7 @@ import StoreItems from './StoreItems';
 class Store extends Component {
     componentDidMount() {
         this.props.onSetActiveLink('store');
+        this.props.onChangeToCurrentDate();
     }
 
     render() {
@@ -23,7 +24,8 @@ class Store extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSetActiveLink: linkname => dispatch(actions.setActiveLink(linkname))
+        onSetActiveLink: linkname => dispatch(actions.setActiveLink(linkname)),
+        onChangeToCurrentDate: () => dispatch(actions.changeToCurrentDate())
     };
 };
 

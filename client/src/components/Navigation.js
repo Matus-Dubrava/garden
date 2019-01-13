@@ -50,6 +50,17 @@ class Navigation extends Component {
                             pridat polozku
                         </Link>
                     </li>
+                    <li className="nav__item">
+                        <Link
+                            className={getClassName(
+                                'store_search',
+                                this.props.activeLink
+                            )}
+                            to="/store/search"
+                        >
+                            vyhladavat
+                        </Link>
+                    </li>
                     <li className="nav__item nav__item--title">PRIJEMKY</li>
                     <li className="nav__item">
                         <Link

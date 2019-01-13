@@ -9,7 +9,9 @@ import {
     UPDATE_STORE_ITEM,
     REQUEST_SUCCEEDED,
     FETCH_SUBSET_DATA,
-    CHANGE_TO_CURRENT_STATE
+    CHANGE_TO_CURRENT_DATE,
+    SWITH_ALL_DATA_AND_SUBSET,
+    FILTER_BY_AMOUNT
 } from './types';
 import { storeBaseUrl } from '../urls';
 
@@ -20,20 +22,29 @@ const storeAxios = axios.create({
     }
 });
 
+const showAllData = showAll => {
+    return {
+        type: SWITH_ALL_DATA_AND_SUBSET,
+        showAll
+    };
+};
+
 export const fetchSubsetData = date => async dispatch => {
     dispatch({ type: REQUEST_INITIALIZED });
 
     try {
         const res = await storeAxios(`?date=${date}`);
         dispatch({ type: FETCH_SUBSET_DATA, items: res.data, date });
+        dispatch(showAllData(false));
         dispatch({ type: REQUEST_SUCCEEDED });
     } catch (error) {
         dispatch({ type: REQUEST_FAILED, error: 'nepodarilo sa ziskat data' });
     }
 };
 
-export const changeToCurrentState = () => {
-    return { type: CHANGE_TO_CURRENT_STATE };
+export const changeToCurrentDate = () => async dispatch => {
+    dispatch(showAllData(true));
+    dispatch({ type: CHANGE_TO_CURRENT_DATE });
 };
 
 export const fetchStoreData = () => async dispatch => {
@@ -123,4 +134,9 @@ export const deleteStoreItem = id => async dispatch => {
                 'odstanenie polozky zlyhalo, na polozku sa odkazuje iny dokument'
         });
     }
+};
+
+export const filterByAmount = (from, to) => async dispatch => {
+    dispatch(showAllData(false));
+    dispatch({ type: FILTER_BY_AMOUNT, from, to });
 };
