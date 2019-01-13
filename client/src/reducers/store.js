@@ -5,14 +5,24 @@ import {
     UPDATE_STORE_ITEM,
     UPDATE_STORE_ITEM_AMOUNT,
     FETCH_SUBSET_DATA,
-    CHANGE_TO_CURRENT_STATE
+    CHANGE_TO_CURRENT_DATE,
+    SWITH_ALL_DATA_AND_SUBSET,
+    FILTER_BY_AMOUNT
 } from '../actions/types';
 
 const INITIAL_STATE = {
     items: [],
+    itemsSubset: [],
     currentDate: true,
     selectedDate: '',
-    itemsSubset: []
+    showAll: true
+};
+
+const switchAllDataAndSubset = (state, { showAll }) => {
+    return {
+        ...state,
+        showAll
+    };
 };
 
 const fetchSubsetData = (state, { items, date }) => {
@@ -24,7 +34,7 @@ const fetchSubsetData = (state, { items, date }) => {
     };
 };
 
-const changeToCurrentState = state => {
+const changeToCurrentDate = state => {
     return {
         ...state,
         currentDate: true,
@@ -83,10 +93,23 @@ const updateStoreItemAmount = (state, { id, amount, increase }) => {
     };
 };
 
+const filterByAmount = (state, { from, to }) => {
+    return {
+        ...state,
+        itemsSubset: state.items.filter(
+            item => item.available >= from && item.available <= to
+        )
+    };
+};
+
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case CHANGE_TO_CURRENT_STATE:
-            return changeToCurrentState(state, action);
+        case FILTER_BY_AMOUNT:
+            return filterByAmount(state, action);
+        case SWITH_ALL_DATA_AND_SUBSET:
+            return switchAllDataAndSubset(state, action);
+        case CHANGE_TO_CURRENT_DATE:
+            return changeToCurrentDate(state, action);
         case FETCH_SUBSET_DATA:
             return fetchSubsetData(state, action);
         case UPDATE_STORE_ITEM_AMOUNT:

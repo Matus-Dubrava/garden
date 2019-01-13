@@ -4,7 +4,8 @@ export {
     deleteStoreItem,
     updateStoreItem,
     fetchSubsetData,
-    changeToCurrentState
+    changeToCurrentDate,
+    filterByAmount
 } from './store';
 
 export {

@@ -28,6 +28,11 @@ class Landing extends Component {
                                 pridat polozku
                             </Link>
                         </div>
+                        <div>
+                            <Link className="landing__link" to="/store/search">
+                                vyhladavat
+                            </Link>
+                        </div>
                     </div>
                 </div>
                 <div className="landing__item landing__item--2">

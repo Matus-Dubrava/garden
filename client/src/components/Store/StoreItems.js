@@ -16,10 +16,10 @@ class StoreItems extends Component {
     renderItems() {
         // if the date it set to current date, then show all the store items
         // otherwise show only a returned subset (different piece of redux state - itemsSubset)
-        if (this.props.currentDate) {
+        if (this.props.showAll) {
             if (this.props.items) {
                 return this.props.items.map(item => (
-                    <StoreItem item={item} showAdvanced />
+                    <StoreItem key={item.id} item={item} showAdvanced />
                 ));
             } else {
                 return null;
@@ -27,7 +27,7 @@ class StoreItems extends Component {
         } else {
             if (this.props.itemsSubset) {
                 return this.props.itemsSubset.map(item => (
-                    <StoreItem item={item} />
+                    <StoreItem key={item.id} item={item} />
                 ));
             } else {
                 return null;
@@ -36,7 +36,7 @@ class StoreItems extends Component {
     }
 
     render() {
-        if (this.props.currentDate) {
+        if (this.props.showAll) {
             return (
                 <div className="product-box">
                     <div className="product-box__row product-box__row--header">
@@ -84,8 +84,8 @@ const mapStateToProps = state => {
     return {
         loading: state.app.loading,
         items: state.store.items,
-        currentDate: state.store.currentDate,
-        itemsSubset: state.store.itemsSubset
+        itemsSubset: state.store.itemsSubset,
+        showAll: state.store.showAll
     };
 };
 
