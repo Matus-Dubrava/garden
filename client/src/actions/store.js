@@ -57,7 +57,7 @@ export const addStoreItem = (
     dispatch({ type: REQUEST_INITIALIZED });
 
     try {
-        const item = { code, name, sellingPrice };
+        const item = { code, name, sellingPrice, available: 0 };
         const res = await storeAxios.post('', item);
         item.id = res.data.insertId;
 
